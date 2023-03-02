@@ -127,4 +127,4 @@ refs_merge <- refs_merge %>%
 
 
 ##### Write to CSV files #####
-write.csv(refs_merge, paste(dirHome,'NCTs checking.csv',sep = '/'), na = "", row.names = FALSE)
+write.csv(refs_merge, paste(dirHome,'NCTs checking.csv',sep = '/'), na = "", row.names = FALSE, fileEncoding = "UTF-8")
