@@ -3,7 +3,7 @@
 
 # Prerequisites
 For NCT_check.ipynb:
-    Python 3
+				Python 3
     Jupyter notebook
 
 For NCT_check.R:
