@@ -1,4 +1,4 @@
-### Purpose
+## Purpose
 Containing Python and R scripts for web scraping information from Clinicaltrials.gov to check if outcomes databases need update.
 
 ## Getting Started
