@@ -4,23 +4,23 @@ Containing Python and R scripts for web scraping information from Clinicaltrials
 ## Getting Started
 ### Prerequisites
 
-Scripts:<br>
+**Scripts:**<br>
 1. NCTs_check.R
 2. NCT_check.ipynb (if you have python and you'd like to try it out)
 
-Environment setting:<br>
-For **NCT_check.ipynb**:
+**Environment setting:**<br>
+For NCT_check.ipynb:
 1. Python 3
 2. Jupyter notebook
 
-For **NCT_check.R**:
+For NCT_check.R:
 1. R version 4.0.4
 2. R studio 2022.07.1
 
-File needed:
+**File needed:**
 1. Source database.csv (Before using the script, please use augment.source 02162023_v5.R to augment source database)
 
-Directories:<br>
+**Directories:**<br>
 Save the file in ***csv*** folder of the database you are currently working on, and the script in ***r*** folder.<br>
 
 ### Usage
