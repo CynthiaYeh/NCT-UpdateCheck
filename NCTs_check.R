@@ -40,7 +40,10 @@ library(lubridate)
 dirHome <- dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(dirHome)
 
-refs <- read.csv("Source database.csv", header = TRUE, encoding = "UTF-8")
+dirSource <- '../csv'
+dirResults <- '../csv'
+
+refs <- read.csv(file = paste(dirSource, "Source database.csv", sep = "/"), header = TRUE, encoding = "UTF-8")
 names(refs)[1] <- "search"
 # Filter the clintrials references that are included in the outcomes DB
 refs_nct <- refs %>% filter(database == "yes" &
@@ -92,10 +95,10 @@ for (i in refs_nct$url){
   df <- page %>% html_table(fill = TRUE)
   df <- df[[1]]
   
-  df_last_posted <- tail(df, 1)
+  ind <- which(grepl("Last Update Posted", df$X1))
   
-  print(df_last_posted$X2)
-  last_post <- append(last_post, df_last_posted$X2)
+  print(df$X2[ind])
+  last_post <- append(last_post, df$X2[ind])
 }
 
 
@@ -127,4 +130,4 @@ refs_merge <- refs_merge %>%
 
 
 ##### Write to CSV files #####
-write.csv(refs_merge, paste(dirHome,'NCTs checking.csv',sep = '/'), na = "", row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(refs_merge, paste(dirResults,'NCTs checking.csv',sep = '/'), na = "", row.names = FALSE, fileEncoding = "UTF-8")
