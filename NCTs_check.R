@@ -3,7 +3,7 @@
 # Script Version : 2 March 2023
 # Database       :
 # Created by     : Cynthia Yeh
-#-------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # Last run by  : (name) - Certara Confidential
 # Date run     : 2 March 2023
 # -------------------------------------------------------------------------
@@ -107,6 +107,9 @@ for (i in refs_nct$url){
 last_update_date <- mdy(last_update)
 last_post_date <- mdy(last_post)
 
+# Convert search.date to date format
+refs_nct$search.date <- ymd(refs_nct$search.date)
+
 # Add columns for update dates
 refs_nct$last_outcome_change <- last_update_date
 refs_nct$nct_update_needed <- refs_nct$search.date < refs_nct$last_outcome_change
@@ -119,7 +122,7 @@ refs_merge <- refs %>%
   left_join(refs_nct %>% select(source.number, last_outcome_change, nct_update_needed, last_update_posted), by = "source.number")
 
 # Convert date columns to desired format
-dates <- c("search.date", "last_outcome_change", "last_update_posted")
+dates <- c("last_outcome_change", "last_update_posted")
 
 for (k in dates) {
   refs_merge[,k] <- paste('="', as.character(refs_merge[,k]), '"', sep = '') 
